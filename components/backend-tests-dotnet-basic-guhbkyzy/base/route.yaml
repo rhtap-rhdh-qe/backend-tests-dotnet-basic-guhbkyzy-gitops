@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: backend-tests-dotnet-basic-guhbkyzy
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: backend-tests-dotnet-basic-guhbkyzy 
+  name: backend-tests-dotnet-basic-guhbkyzy
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: backend-tests-dotnet-basic-guhbkyzy
+    weight: 100 
